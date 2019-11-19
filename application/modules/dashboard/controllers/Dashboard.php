@@ -438,7 +438,7 @@ class Dashboard extends CI_Controller {
 					   'price'    => $nama_jalur_aktif[0]['price'], // Total Harga
 					   'quantity' => 1,
 					   'comments' => 'Keterangan Produk', // Optional
-					   'ureturn'  => base_url() . 'dashboard/pendaftaran/',
+					   'ureturn'  => base_url() . 'dashboard/pendaftaran?q=',
 					   //'unotify'  => 'http://websiteanda.com/notify.php',
 					   //'ucancel'  => base_url() . 'dashboard/pendaftaran/',
 					  
