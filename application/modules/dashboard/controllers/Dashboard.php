@@ -438,9 +438,9 @@ class Dashboard extends CI_Controller {
 					   'price'    => $nama_jalur_aktif[0]['price'], // Total Harga
 					   'quantity' => 1,
 					   'comments' => 'Keterangan Produk', // Optional
-					   'ureturn'  => base_url() . '/dashboard/pendaftaran/pembayaran/berhasil',
+					   'ureturn'  => base_url() . 'dashboard/pendaftaran/',
 					   //'unotify'  => 'http://websiteanda.com/notify.php',
-					   //'ucancel'  => 'http://websiteanda.com/cancel.php',
+					   //'ucancel'  => base_url() . 'dashboard/pendaftaran/',
 					  
 					   /* Parameter tambahan untuk pembayaran COD
 					   * ----------------------------------------------- */
@@ -509,7 +509,14 @@ class Dashboard extends CI_Controller {
 
 
 				//UPLOAD DOKUMEN
+
+
+
 				if($params1 == "upload_dokumen"):
+					if ($cek[0]['tahap_seleksi'] > 5) {
+						redirect('dashboard/pendaftaran/details/'.$params2);
+					}
+
 					$upload_dokumen['id_pendaftaran_jalur_seleksi'] 	= $params2;
 					$upload_dokumen['users_id'] 						= $this->session->userdata('users_id');
 				    $upload_dokumen['dokumen_pendaftar'] 				= $this->m_crud->get_data_pendaftar_by_id($params2);
